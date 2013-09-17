@@ -1,0 +1,7 @@
+*.csproj
+*.sln
+*.unityproj
+*.suo
+CMP150/Library/*
+CMP150/Temp/*
+CMP150/obj/*
