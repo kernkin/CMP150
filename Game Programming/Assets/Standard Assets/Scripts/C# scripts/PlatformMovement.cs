@@ -17,7 +17,7 @@ public static class Extensions
     }
 }
 [RequireComponent(typeof(CharacterController))]
-public class PlatformMovement : MonoBehaviour 
+public class PlatformMovement : MyDerivedMono
 {
     public Control MoveLeft,
                    MoveRight,
@@ -27,14 +27,14 @@ public class PlatformMovement : MonoBehaviour
                  JumpStrength = 20,
                  MoveSpeed = 30;
 
-	CollisionFlags prevFlags;
-    private class CharacterController
-    {
-     
-    }
+	
+    private CharacterController controller;
+ 
+    CollisionFlags prevFlags;
 	void Start ()
+
     {
-        controller = GetComponent<CharacterController>();
+    controller = GetComponent<CharacterController>();
     if(controller == null)
         {
             Debug.LogError("No character controller found " + name);
@@ -44,25 +44,26 @@ public class PlatformMovement : MonoBehaviour
 	void Update () 
     {
             Vector3 moveVec = Vector3.zero;
-            if (MoveLeft.isActive)
+
+            if (MoveLeft.IsActive)
             {
-                move.Vecx -= MoveSpeed;
+                moveVec.x -= MoveSpeed;
             }
-            if (MoveLeft.isActive)
+            if (MoveRight.IsActive)
             {
-                move.Vecx -= MoveSpeed;
+                moveVec.x += MoveSpeed;
             }
-               if (MoveRight.isActive)
+            if (Jump.IsActive)
             {
-                move.Vecx += MoveSpeed;
+                moveVec.y += MoveSpeed;
             }
 
-            if(!prevFlags.Has(CollosionFlags.CollidedBelow))
+            if(!prevFlags.Has(CollisionFlags.CollidedBelow))
             {
                 moveVec.y -= Gravity;
             }
 
-            CollisionFlags flags = controller.Move(moreVec * Time.deltatime);
+            CollisionFlags flags = controller.Move(moveVec * Time.deltaTime);
         
 	}
 }
