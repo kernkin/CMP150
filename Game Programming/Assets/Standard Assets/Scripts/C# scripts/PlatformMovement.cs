@@ -22,11 +22,13 @@ public class PlatformMovement : MyDerivedMono
     public Control MoveLeft,
                    MoveRight,
                    Jump;
+                   
 
     public float Gravity = 9,
                  JumpStrength = 20,
                  MoveSpeed = 30;
 
+    public GameObject drawObject;
 	
     private CharacterController controller;
  
@@ -48,10 +50,12 @@ public class PlatformMovement : MyDerivedMono
             if (MoveLeft.IsActive)
             {
                 moveVec.x -= MoveSpeed;
+                drawObject.transform.rotation = Quaternion.Euler(0, 180, 0);
             }
             if (MoveRight.IsActive)
             {
                 moveVec.x += MoveSpeed;
+                drawObject.transform.rotation = Quaternion.Euler(0, 0, 0);
             }
             if (Jump.IsActive)
             {
@@ -64,6 +68,10 @@ public class PlatformMovement : MyDerivedMono
             }
 
             CollisionFlags flags = controller.Move(moveVec * Time.deltaTime);
-        
+
+            if (Jump.IsActive)
+            {
+                audio.Play();
+            }
 	}
 }

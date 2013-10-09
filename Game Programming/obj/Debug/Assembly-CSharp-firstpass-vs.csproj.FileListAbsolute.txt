@@ -10,3 +10,5 @@ C:\Users\media\Desktop\CMP150\Game Programming\obj\Debug\Assembly-CSharp-firstpa
 C:\Users\media\Desktop\CMP150\Game Programming\obj\Debug\Assembly-CSharp-firstpass.pdb
 C:\Users\Kernkin\Desktop\CMP150\Game Programming\obj\Debug\Assembly-CSharp-firstpass-vs.csprojResolveAssemblyReference.cache
 C:\Users\Kernkin\Desktop\CMP150\Game Programming\obj\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\ehstudent\Desktop\CMP150\Game Programming\obj\Debug\Assembly-CSharp-firstpass-vs.csprojResolveAssemblyReference.cache
+C:\Users\ehstudent\Desktop\CMP150\Game Programming\obj\Debug\Assembly-CSharp-firstpass.dll
