@@ -16,4 +16,18 @@ public class Bullet : MonoBehaviour
     {
         transform.Translate(transform.InverseTransformDirection(transform.forward) * Speed * Time.deltaTime, Space.Self);
 	}
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            DestroyObject(other.gameObject);
+        }
+    }
+     void OnCollisionEnter(Collision other)
+     {
+	    {
+        DestroyObject(other.gameObject);       
+        }
+
+    }
 }

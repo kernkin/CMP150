@@ -24,18 +24,20 @@ public class PlatformMovement : MyDerivedMono
                    Jump;
                    
 
-    public float Gravity = 9,
-                 JumpStrength = 20,
+    public float Gravity = 20,
+                 JumpStrength = 50,
                  MoveSpeed = 30;
 
     public GameObject drawObject;
 	
     private CharacterController controller;
- 
+
+    private float zpos;
     CollisionFlags prevFlags;
 	void Start ()
 
     {
+        this.zpos = transform.position.z;
     controller = GetComponent<CharacterController>();
     if(controller == null)
         {
@@ -73,5 +75,8 @@ public class PlatformMovement : MyDerivedMono
             {
                 audio.Play();
             }
+            var vec = transform.position;
+            vec.z = zpos;
+            transform.position = vec;
 	}
 }
